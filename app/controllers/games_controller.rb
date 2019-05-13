@@ -1,11 +1,7 @@
 require 'open-uri'
 require 'json'
 
-
-
-
 class GamesController < ApplicationController
-
 
   def new
     # will be used to display a new random grid and a form.
@@ -19,7 +15,6 @@ class GamesController < ApplicationController
     end
     return @my_chars
   end
-
 
 def compare_instances(attempt, grid)
   final_answer = []
@@ -52,11 +47,23 @@ exist_check = word_exists(@user_answer)
 if exist_check == false
 @responce = "Sorry, but #{@user_answer} is not an English word"
   elsif compare_check == false
-@responce = "Sorry but #{@user_answer} can't be built out of #{grid_check} "
+@responce = "Sorry but #{@user_answer} can't be built out of #{display(grid_check)} "
   else
     @responce = "Congrats buddy, that was a real word my dude...."
 end
 return @responce
+end
+
+
+def display(arr)
+string_print = ""
+
+arr.each do |item|
+  string_print += item
+  string_print += ", "
+end
+
+return string_print
 end
 
 end

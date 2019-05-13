@@ -1,10 +1,9 @@
 <h1> Your letters: </h1>
-<ul>
+<div class="container">
 <% @my_chars.each do |item|  %>
-<li> <%= item %> </li>
+  <div class="letter-box"> <%= item %> </div>
   <% end %>
-</ul>
-
+</div>
 
 
 <form action="/games/score" method="post">
